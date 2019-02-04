@@ -143,7 +143,7 @@ public class Utils {
             return dotGitPath.act(new MasterToSlaveFileCallable<String>() {
                 public String invoke(File f, VirtualChannel channel) throws IOException, InterruptedException {
                     FileRepository repository = new FileRepository(f);
-                    Ref head = repository.getRef("HEAD");
+                    Ref head = repository.findRef("HEAD");
                     return head.getObjectId().getName();
                 }
             });
